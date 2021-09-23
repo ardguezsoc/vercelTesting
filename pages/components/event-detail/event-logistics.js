@@ -5,7 +5,7 @@ import classes from './event-logistics.module.css';
 import Image from 'next/image';
 
 function EventLogistics(props) {
-  const { date, address, image, imageAlt } = props;
+  const { date, address, image, imageAlt, title } = props;
 
   const humanReadableDate = new Date(date).toLocaleDateString('en-US', {
     day: 'numeric',

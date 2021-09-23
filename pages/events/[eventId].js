@@ -1,14 +1,16 @@
-import { Fragment } from "react";
-import { getEventById, getFeaturedEvents } from "../../helpers/api-util";
-import EventSummary from "../components/event-detail/event-summary";
-import EventLogistic from "../components/event-detail/event-logistics";
-import EventContent from "../components/event-detail/event-content";
+import { Fragment } from 'react';
+import { getEventById, getFeaturedEvents } from '../../helpers/api-util';
+import EventSummary from '../components/event-detail/event-summary';
+import EventLogistic from '../components/event-detail/event-logistics';
+import EventContent from '../components/event-detail/event-content';
 function EventDetailPage({ selectedEvent }) {
   const { title, date, location, image, description } = selectedEvent;
+
   return (
     <Fragment>
       <EventSummary title={title} />
       <EventLogistic
+        title={title}
         date={date}
         address={location}
         image={image}
@@ -30,12 +32,13 @@ export async function getStaticPaths() {
   }));
   return {
     paths: paths,
-    fallback: "blocking",
+    fallback: 'blocking',
   };
 }
 
 export async function getStaticProps({ params }) {
   const data = await getEventById(params.eventId);
+  console.log(data);
 
   return {
     props: {
