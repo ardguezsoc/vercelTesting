@@ -38,7 +38,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const data = await getEventById(params.eventId);
-  console.log(data);
 
   return {
     props: {

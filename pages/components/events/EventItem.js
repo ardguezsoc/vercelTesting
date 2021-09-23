@@ -13,8 +13,8 @@ const EventItem = (props) => {
     month: 'long',
     year: 'numeric',
   });
-
-  const formatedAddress = location.replace(' ,', '\n');
+  console.log(location);
+  const formatedAddress = location?.replace(' ,', '\n');
   return (
     <li className={classes.item}>
       <Image src={image} alt={title} width={150} height={150} />
